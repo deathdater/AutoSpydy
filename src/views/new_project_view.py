@@ -1,16 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
-
+from models.projectModel import Project
 
 class ProjectView(tk.Frame):
     def __init__(self, master,*args,**kwargs):
         super().__init__(master)
-        self.user_input=tk.StringVar()
+        self.projectnameVar=tk.StringVar()
+        self.projectDescVar=tk.StringVar()
 
         self.newproject_label=ttk.Label(master,text="Project Name")
-        self.projectname=ttk.Entry(master,textvariable=self.user_input)
+        self.projectname=ttk.Entry(master,textvariable=self.projectnameVar)
         self.newprojectdesc_label=ttk.Label(master,text="Project Description")
-        self.projectdesc=tk.Text(master,height=5)
+        self.projectdesc=tk.Entry(master,textvariable=self.projectDescVar)
         self.addproject_btn=ttk.Button(master,text="Add Project",command=self.pressAddBtn)
         self.viewproject_btn=ttk.Button(master,text="View Project",command=self.pressViewBtn)
 
@@ -21,7 +22,10 @@ class ProjectView(tk.Frame):
         self.addproject_btn.grid(row=3,column=1,columnspan=1,padx=10,pady=10)
         self.viewproject_btn.grid(row=3,column=2,columnspan=1,padx=10,pady=10)
     def pressAddBtn(self):
-        print(f"Added Project: {self.user_input.get()}")
+        project=Project(self.projectname.get(),self.projectdesc.get())
+        project.createProject()
+
+        
     def pressViewBtn(self):
         print(f"View Projects: {self.user_input.get()}")
 
