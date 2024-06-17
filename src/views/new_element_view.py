@@ -1,16 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
+import customtkinter as ctk
 
 class ElementView(tk.Frame):
     def __init__(self, master,*args,**kwargs):
         super().__init__(master)
-        self.element_name_label=ttk.Label(master,text="Element Name:")
-        self.element_name=ttk.Entry(master,)
-        self.locatortype_label=ttk.Label(master,text="Locator Type:")
-        self.locatortype=ttk.Combobox(master,values=("XPATH","ID","CSS"))
-        self.locatorVal_label=ttk.Label(master,text="Locator Value:")
-        self.locatorVal=tk.Text(master,height=5)
-        self.locatorAdd_btn=ttk.Button(master,text="Add Locator")
+        self.element_name_label=ctk.CTkLabel(master,text="Element Name:")
+        self.element_name=ctk.CTkEntry(master,)
+        self.locatortype_label=ctk.CTkLabel(master,text="Locator Type:")
+        self.locatortype=ctk.CTkComboBox(master,values=("XPATH","ID","CSS"))
+        self.locatorVal_label=ctk.CTkLabel(master,text="Locator Value:")
+        self.locatorVal=ctk.CTkEntry(master,)
+        self.locatorAdd_btn=ctk.CTkButton(master,text="Add Locator")
 
         self.element_name_label.grid(row=1,column=0,padx=10,pady=10)
         self.element_name.grid(row=1,column=1,padx=10,pady=10)

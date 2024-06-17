@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import customtkinter as ctk
 from models.projectModel import Project
 from models.pageModel import Page
 import models.dbSession as db
@@ -14,15 +15,15 @@ class PageView(tk.Frame):
         self.projVar=tk.IntVar()
         # print(Project.getProjects())
 
-        self.projlist_label=ttk.Label(master,text="Select Project:")
+        self.projlist_label=ctk.CTkLabel(master,text="Select Project:")
         self.projects=Project.getProjects()
 
-        self.projlist=ttk.Combobox(master,state="readonly",values=self.projects)
-        self.page_name_label=ttk.Label(master,text="Page Name:")
-        self.page_name=ttk.Entry(master,textvariable=self.pagenameVar)
-        self.pageURL_label=ttk.Label(master,text="Page URL:")
-        self.pageURL=tk.Entry(master,textvariable=self.pageurlVar)
-        self.pageAdd_btn=ttk.Button(master,text="Add Page",command=self.pressAddPage)
+        self.projlist=ctk.CTkComboBox(master,state="readonly",values=self.projects)
+        self.page_name_label=ctk.CTkLabel(master,text="Page Name:")
+        self.page_name=ctk.CTkEntry(master,textvariable=self.pagenameVar)
+        self.pageURL_label=ctk.CTkLabel(master,text="Page URL:")
+        self.pageURL=ctk.CTkEntry(master,textvariable=self.pageurlVar)
+        self.pageAdd_btn=ctk.CTkButton(master,text="Add Page",command=self.pressAddPage)
 
 
         self.projlist_label.grid(row=0,column=0,padx=10,pady=10)

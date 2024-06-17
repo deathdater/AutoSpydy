@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import customtkinter as ctk
 from models.projectModel import Project
 
 class ProjectView(tk.Frame):
@@ -8,12 +9,12 @@ class ProjectView(tk.Frame):
         self.projectnameVar=tk.StringVar()
         self.projectDescVar=tk.StringVar()
 
-        self.newproject_label=ttk.Label(master,text="Project Name")
-        self.projectname=ttk.Entry(master,textvariable=self.projectnameVar)
-        self.newprojectdesc_label=ttk.Label(master,text="Project Description")
-        self.projectdesc=tk.Entry(master,textvariable=self.projectDescVar)
-        self.addproject_btn=ttk.Button(master,text="Add Project",command=self.pressAddBtn)
-        self.viewproject_btn=ttk.Button(master,text="View Project",command=self.pressViewBtn)
+        self.newproject_label=ctk.CTkLabel(master,text="Project Name")
+        self.projectname=ctk.CTkEntry(master,textvariable=self.projectnameVar)
+        self.newprojectdesc_label=ctk.CTkLabel(master,text="Project Description")
+        self.projectdesc=ctk.CTkEntry(master,textvariable=self.projectDescVar)
+        self.addproject_btn=ctk.CTkButton(master,text="Add Project",command=self.pressAddBtn)
+        self.viewproject_btn=ctk.CTkButton(master,text="View Project",command=self.pressViewBtn)
 
         self.newproject_label.grid(row=1,column=0,padx=10,pady=10)
         self.projectname.grid(row=1,column=1,padx=10,pady=10)
