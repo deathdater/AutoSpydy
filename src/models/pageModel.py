@@ -27,3 +27,9 @@ class Page(Base):
         session.add(Page(self.project_id,self.pagename,self.pageurl))
         session.commit()
         print (f"{self.pagename} Added To DB")
+    
+    def getPages(dbname):
+        session,engine=db.createSession(dbname)
+        Base.metadata.create_all(bind=engine)
+        results=session.query(Page).all()
+        return results
