@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine,ForeignKey,Column,String,Integer,CHAR
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
 Base = declarative_base()
 
 class Project(Base):
@@ -34,12 +35,9 @@ class Project(Base):
         print (f"{self.projectname} DB String Updated")
     
     def getProjects():
-        engine=create_engine(f"sqlite:///data/projectdb/adsad.db",echo=True)
-        Base.metadata.create_all(bind=engine)
-        Session=sessionmaker(bind=engine)
-        session=Session()
-        results=session.query(Project).all()
-        return results,session
+        path="AutoSpydy//src//data//projectdb//"
+        files=os.listdir("data/projectdb/")
+        return files
 
 
 
